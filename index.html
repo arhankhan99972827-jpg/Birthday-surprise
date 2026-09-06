@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am Sorry! 🥺</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f4f8; padding: 50px; }
+        .box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0px 5px 15px rgba(0,0,0,0.1); display: inline-block; max-width: 90%; }
+        input { padding: 12px; font-size: 16px; margin: 15px 0; border-radius: 8px; border: 1px solid #ccc; text-align:center; width: 80%; }
+        button { padding: 12px 25px; font-size: 16px; background-color: #5c6bc0; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        #secretContent { display: none; margin-top: 20px; }
+        h2 { color: #333; }
+        h1 { color: #e91e63; }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="lockBox">
+        <h2>🔒 Sirf Unke Liye Jo Mujhse Gussa Hain...</h2>
+        <p>Apna naam likh kar unlock karo 🥺</p>
+        <input type="text" id="passcodeField" placeholder="Apna naam likho...">
+        <br>
+        <button onclick="checkCode()">Unlock ✨</button>
+    </div>
+
+    <div id="secretContent">
+        <h1>Maan jao na, I am Really Sorry! 😭❤️</h1>
+        <p>Mujhse galti ho gayi, please ab gussa thuk do. Aap mere liye bohot zyada special ho! ✨</p>
+        <!-- Cute sorry image link -->
+        <img src="https://unsplash.com" alt="Cute Sad Doggy" style="border-radius: 12px; width: 100%; max-width: 400px; margin-top: 15px;">
+    </div>
+
+    <script>
+        function checkCode() {
+            var nameInput = document.getElementById("passcodeField").value.trim().toLowerCase();
+            
+            // NEECHE "rahul" KI JAGAH UNKA NAAM CHOTE LETTERS (lowercase) ME LIKHO
+            if (nameInput === "janvi") { 
+                document.getElementById("lockBox").style.display = "none";
+                document.getElementById("secretContent").style.display = "block";
+            } else {
+                alert("Galat naam! Ye page sirf unke liye hai jo mujhse gussa hain ❌");
+            }
+        }
+    </script>
+
+</body>
+</html>
