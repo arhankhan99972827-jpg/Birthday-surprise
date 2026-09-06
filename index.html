@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Sorry! 🥺</title>
+    <title>Please Maan Jao Na... 🥺</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f4f8; padding: 50px; }
-        .box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0px 5px 15px rgba(0,0,0,0.1); display: inline-block; max-width: 90%; }
-        input { padding: 12px; font-size: 16px; margin: 15px 0; border-radius: 8px; border: 1px solid #ccc; text-align:center; width: 80%; }
-        button { padding: 12px 25px; font-size: 16px; background-color: #5c6bc0; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        #secretContent { display: none; margin-top: 20px; }
-        h2 { color: #333; }
-        h1 { color: #e91e63; }
+        body { font-family: 'Arial', sans-serif; text-align: center; background-color: #ffe6e6; padding: 20px; display: flex; justify-content: center; align-items: center; height: 90vh; margin:0; }
+        .box { background: white; padding: 30px; border-radius: 20px; box-shadow: 0px 10px 25px rgba(0,0,0,0.15); max-width: 400px; width: 90%; }
+        input { padding: 12px; font-size: 16px; margin: 15px 0; border-radius: 8px; border: 1px solid #ff9999; text-align:center; width: 85%; }
+        button { padding: 12px 25px; font-size: 16px; background-color: #ff4d6d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 10px; }
+        button:hover { background-color: #ff1a43; transform: scale(1.05); }
+        .page { display: none; }
+        .active { display: block; animation: fadeIn 0.8s ease-in-out; }
+        p { font-size: 18px; color: #555; line-height: 1.6; }
+        h1 { color: #ff4d6d; font-size: 26px; }
+        img { border-radius: 15px; width: 100%; max-width: 320px; margin-top: 15px; box-shadow: 0px 5px 10px rgba(0,0,0,0.1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <div class="box" id="lockBox">
+    <!-- PASSCODE PAGE -->
+    <div class="box active" id="lockBox">
         <h2>🔒 Sirf Unke Liye Jo Mujhse Gussa Hain...</h2>
         <p>Apna naam likh kar unlock karo 🥺</p>
         <input type="text" id="passcodeField" placeholder="Apna naam likho...">
@@ -24,26 +29,83 @@
         <button onclick="checkCode()">Unlock ✨</button>
     </div>
 
-    <div id="secretContent">
-        <h1>Maan jao na, I am Really Sorry! 😭❤️</h1>
-        <p>Mujhse galti ho gayi, please ab gussa thuk do. Aap mere liye bohot zyada special ho! ✨</p>
-        <!-- Cute sorry image link -->
-        <img src="https://unsplash.com" alt="Cute Sad Doggy" style="border-radius: 12px; width: 100%; max-width: 400px; margin-top: 15px;">
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="box page" id="contentBox">
+        
+        <!-- Background Music (Sweet instrumental) -->
+        <audio id="bgMusic" loop src="https://soundhelix.com"></audio>
+
+        <!-- PAGE 1 -->
+        <div class="story-page active-page" id="p1">
+            <h1>Maan jao na, I am Sorry! 😭</h1>
+            <p>Mujhse bahut badi galti ho gayi, please ab zyada gussa mat karo. Main sach me bohot pareshan hoon... 🥺</p>
+            <img src="https://unsplash.com" alt="Sad Cutie">
+            <br><button onclick="nextPage('p1', 'p2')">Next ➡️</button>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="story-page" id="p2" style="display:none;">
+            <h1>Aap Mere Liye Sabse Special Ho! ✨</h1>
+            <p>Pata hai na... jab aap baat nahi karte toh mera kisi kaam me mann nahi lagta. Pura din bas aapke messages ka wait karta hoon. ❤️</p>
+            <img src="https://unsplash.com" alt="Sorry Hug">
+            <br><button onclick="nextPage('p2', 'p3')">Next ➡️</button>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="story-page" id="p3" style="display:none;">
+            <h1>Please Ek Baar Maaf Kardo! 🙏</h1>
+            <p>Main promise karta hoon ki aage se aapko kabhi shikayat ka mauka nahi dunga. Ek pyaari si smile de do na ab... 😊</p>
+            <img src="https://unsplash.com" alt="Smile Please">
+            <br><button onclick="nextPage('p3', 'p4')">Next ➡️</button>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div class="story-page" id="p4" style="display:none;">
+            <h1>Pakka Waala Promise! 🤝</h1>
+            <p>Aap jo bologi main wahi karunga, bas ye gussa thuk do aur ek baar bol do ki haan "maaf kiya"! 🥺💖</p>
+            <img src="https://unsplash.com" alt="Promise">
+            <br><button onclick="nextPage('p4', 'p5')">Last Page ➡️</button>
+        </div>
+
+        <!-- PAGE 5 -->
+        <div class="story-page" id="p5" style="display:none;">
+            <h1>I Love Our Bond! Forever ❤️</h1>
+            <p>Thank you is video ke aakhri tak aane ke liye. Ab jaldi se WhatsApp par aao aur mujhe batao ki aap maan gaye ho! 🥰✨</p>
+            <img src="https://unsplash.com" alt="Celeb">
+        </div>
+
     </div>
 
     <script>
         function checkCode() {
             var nameInput = document.getElementById("passcodeField").value.trim().toLowerCase();
             
-            // NEECHE "rahul" KI JAGAH UNKA NAAM CHOTE LETTERS (lowercase) ME LIKHO
-            if (nameInput === "janvi") { 
+            // NEECHE "rahul" KI JAGAH UNKA NAAM CHOTE LETTERS ME LIKHO
+            if (nameInput === "rahul") { 
+                document.getElementById("lockBox").classList.remove("active");
                 document.getElementById("lockBox").style.display = "none";
-                document.getElementById("secretContent").style.display = "block";
+                
+                document.getElementById("contentBox").classList.add("active");
+                
+                // Music start karne ke liye
+                var music = document.getElementById("bgMusic");
+                music.play().catch(function(error) {
+                    console.log("Music play blocked by browser, will play on next click.");
+                });
             } else {
                 alert("Galat naam! Ye page sirf unke liye hai jo mujhse gussa hain ❌");
             }
         }
+
+        function nextPage(currentId, nextId) {
+            document.getElementById(currentId).style.display = "none";
+            document.getElementById(nextId).style.display = "block";
+            
+            // Try playing music again in case it was blocked
+            document.getElementById("bgMusic").play();
+        }
     </script>
 
 </body>
-</html>
+                </html>
+    
